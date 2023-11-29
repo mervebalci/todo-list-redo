@@ -22,8 +22,8 @@ export default function App() {
     <div className="App">
       <h1>TODO LIST</h1>
       <input id="userInput" type="text" placeholder="Add a new to do..."></input>
-      <button onClick={addTask}>Add</button>
-      <TodoList taskList={tasks} setTasks={setTasks}/>
+      <button className="addButton" onClick={addTask}>Add</button>
+      <TodoList className="todoList" taskList={tasks} setTasks={setTasks}/>
     </div>
   );
 }
@@ -37,10 +37,10 @@ function TodoList({ taskList, setTasks }) {
     setTasks(remainingTasks)
   }
   return (
-    <ul>
+    <ul className="todoList">
       {taskList.map((task) =>
-        <li key={task.id}>
-          <button id={task.id} onClick={() => removeTask(task.id)}></button>
+        <li key={task.id} className="task">
+          <button className="checkbox" id={task.id} onClick={() => removeTask(task.id)}></button>
           <span>{task.name}</span>
         </li>
       )}
